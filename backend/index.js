@@ -1,5 +1,7 @@
 const express = require('express');
 const cors = require('cors');
+const mongoose = require('mongoose');
+const Transaction = require('./models/Transaction.models')
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -13,6 +15,7 @@ app.get('/api/test', (req, res) => {
 })
 
 app.post('/api/transaction', (req, res) => {
+    mongoose.connect('')
     const {name, description, datetime} = res.body;
     res.json(req.body)
 })
