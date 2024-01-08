@@ -5,8 +5,14 @@ function App() {
   const [datetime, setDatetime] = useState('')
   const [description, setDescription] = useState('')
 
-  function addNewTransaction() {
-    
+  function addNewTransaction(ev) {
+    ev.preventDefault();
+    const url = process.env.URL+'/transactions'
+    fetch(url, {
+      method: 'POST',
+      headers: {'Content-type': 'applications/json'},
+      body: JSON.stringify({name, description, datetime})
+    })
   }
 
   return (
