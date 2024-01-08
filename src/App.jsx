@@ -22,19 +22,17 @@ function App() {
               <div className="Description">Old phone died</div>
             </div>
             <div className="right">
-              <div className="Price">₹37,000</div>
+              <div className="Price Red">-₹37,000</div>
               <div className="Datetime">2023-1-08 20:12</div>
             </div>
           </div>
-        </div>
-        <div className="Transactions">
           <div className="Transaction">
-            <div className="left">
+            <div className="Left">
               <div className="Name">New Mobile</div>
               <div className="Description">Old phone died</div>
             </div>
-            <div className="right">
-              <div className="Price">₹37,000</div>
+            <div className="Right">
+              <div className="Price Green">+₹37,000</div>
               <div className="Datetime">2023-1-08 20:12</div>
             </div>
           </div>
