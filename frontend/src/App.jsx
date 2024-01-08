@@ -1,17 +1,33 @@
 import './App.css'
 
 function App() {
+  const [name, setName] = useState('')
+  const [datetime, setDatetime] = useState('')
+  const [description, setDescription] = useState('')
+
+  function addNewTransaction() {
+    
+  }
+
   return (
     <>
       <main>
         <h1>₹400<span>.00</span></h1>
-        <form action="">
+        <form onSubmit={addNewTransaction}>
           <div className='Basics'>
-          <input type="text" placeholder='+200' />
-          <input type="datetime-local" />
+          <input type="text" 
+                 value={name} 
+                 onChange={ev => setName(ev.target.value)}
+                 placeholder='+200' />
+          <input type="datetime-local"
+                 value={datetime}
+                 onChange={ev => setDatetime(ev.target.value)} />
           </div>
           <div className='Description'>
-          <input type="text" placeholder='Description'/ >
+          <input type="text" 
+                 placeholder='Description' 
+                 value={description}/>
+                 onChange={ev => setDescription(ev.target.value)}
           </div>
           <button type='submit'>Add new Transaction</button>
         </form>
