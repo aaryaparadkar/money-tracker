@@ -1,7 +1,8 @@
-import express from 'express';
-import cors from 'cors';
-import mongoose from 'mongoose';
-import Transaction from './models/Transaction.models';
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+require('dotenv').config();
+const Transaction = require('./models/Transaction.models');
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -14,8 +15,9 @@ app.get('/api/test', (req, res) => {
     res.json('test ok')
 })
 
-app.post('/api/transaction', (req, res) => {
-    mongoose.connect('')
-    const {name, description, datetime} = res.body;
-    res.json(req.body)
+app.post('/api/transaction', async (req, res) => {
+    await mongoose.connect('process.env.MONGO_URL')
+    const {name, description, datetime} = req.body;
+    const transaction = await Transaction.create({name, description, datetime})
+    res.json(transaction)
 })

@@ -33,10 +33,10 @@ function App() {
           <div className='Description'>
           <input type="text" 
                  placeholder='Description' 
-                 value={description}/>
-                 onChange={ev => setDescription(ev.target.value)}
+                 value={description}
+                 onChange={ev => setDescription(ev.target.value)} />
           </div>
-          <button type='submit'>Add new Transaction</button>
+          <button type='submit' onClick={addNewTransaction}>Add new Transaction</button>
         </form>
         <div className="Transactions">
           <div className="Transaction">
