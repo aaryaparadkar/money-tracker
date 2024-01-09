@@ -1,7 +1,7 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const Transaction = require('./models/Transaction.models')
+import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import Transaction from './models/Transaction.models';
 const app = express();
 const port = process.env.PORT || 3000;
 
