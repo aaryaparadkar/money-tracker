@@ -1,5 +1,6 @@
 import './App.css'
 import { useState } from 'react'
+// require('dotenv').config()
 
 function App() {
   const [name, setName] = useState('')
@@ -9,10 +10,21 @@ function App() {
   function addNewTransaction(ev) {
     ev.preventDefault();
     const url = process.env.URL+'/transactions'
+    const price = name.split(' ')[0]
     fetch(url, {
       method: 'POST',
       headers: {'Content-type': 'applications/json'},
-      body: JSON.stringify({name, description, datetime})
+      body: JSON.stringify({price, 
+        name: name.substring(price.length+1), 
+        description, 
+        datetime})
+    }).then(response => {
+      setName('')
+      setDatetime('')
+      setDescription('')
+      response.json().then(json => {
+        console.log('result', json);
+      })
     })
   }
 
